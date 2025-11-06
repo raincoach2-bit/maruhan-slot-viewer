@@ -4,7 +4,8 @@ function App() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("/data/ami.json")
+    // Googleスプレッドシート → JSON化サービス（opensheet）
+    fetch("https://opensheet.elk.sh/【ここにあなたのスプレッドシートID】/ami")
       .then((response) => response.json())
       .then((json) => setData(json))
       .catch((error) => console.error("データ取得エラー:", error));
@@ -13,7 +14,7 @@ function App() {
   return (
     <div style={{ padding: "20px", fontFamily: "sans-serif" }}>
       <h1>マルハン阿見店 スロットデータビューアー</h1>
-      <p>台番号と機種名の一覧を表示します。</p>
+      <p>Googleスプレッドシートと連携中 ✅</p>
       <table
         style={{
           borderCollapse: "collapse",
